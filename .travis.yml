@@ -11,3 +11,4 @@ before_script:
   - sudo apt-get install mongodb-org-shell
 script:
   - mongo --version
+  - mongo "$MONGODB_SERVER" --username $MONGODB_USER --password $MONGODB_PASSWORD --eval "printjson(db.serverStatus())"
