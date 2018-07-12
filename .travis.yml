@@ -1,0 +1,13 @@
+language: java
+  - MONGODB_VERSION=2.6.10
+  - MONGODB_VERSION=3.0.3
+before_install:
+  - echo "test"
+
+before_script:
+  - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+  - echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+  - sudo apt-get update
+  - sudo apt-get install mongodb-org-shell
+script:
+  - mongo --version
